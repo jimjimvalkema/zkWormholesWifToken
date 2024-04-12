@@ -14,6 +14,16 @@ noirup --version v0.25.0;
 ```
 cd circuit
 nargo compile
-``
+```
+
+
+### run website
+
+```
+cd website
+yarn install
+yarn run dev
+
+```
 
 
