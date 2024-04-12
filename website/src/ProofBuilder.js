@@ -1,6 +1,10 @@
 import {ethers} from 'ethers'
 export class ProofBuilder {
-
+    /**
+     * 
+     * @param {Uint8Array} secret (lenght=32)
+     * @returns 
+     */
     static getProofInputs(secret) {
         const burnAddress = ethers.sha256(secret).slice(0,-24)
         const burnAddressBytes = ethers.toBeArray(burnAddress)
@@ -9,7 +13,7 @@ export class ProofBuilder {
         const nullifierBytes = ethers.toBeArray(nullifier)
 
 
-        const proofInputs = {burnAddressBytes, nullifierBytes, nullifier}
+        const proofInputs = {burnAddressBytes, nullifierBytes, secret}
         return {proofInputs, burnAddress}
 
     }
